@@ -13,12 +13,12 @@ before_install:
     - sudo apt-get update
     - sudo apt-get install -y python3 python3-pip
     - sudo pip3 install requests
-    - ls /usr/local/bin
+    - sudo ls /usr/local/bin
 
 install:
-    - docker-compose up -d
+    - sudo docker-compose up -d
     - sleep 10
 
 script:
-    - docker-compose logs config
-    - docker-compose logs poc
+    - sudo docker-compose logs config
+    - sudo docker-compose logs poc
