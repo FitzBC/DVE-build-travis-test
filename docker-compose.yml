@@ -1,0 +1,27 @@
+version: "3"
+services:
+    web:
+        build:
+            context: .
+            dockerfile: Dockerfile_web
+        container_name: web-app
+        ports:
+            - "8088:80"
+        restart: always
+        stdin_open: true
+        tty: true
+    config:
+        build:
+            context: .
+            dockerfile: Dockerfile_config
+        container_name: config-app
+        depends_on:
+            - web
+    poc:
+        build:
+            context: .
+            dockerfile: Dockerfile_poc
+        container_name: poc-app
+        depends_on:
+            - web
+            - config
