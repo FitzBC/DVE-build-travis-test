@@ -22,6 +22,6 @@ script:
     - poc_result=`sudo docker-compose logs poc`
     - echo $config_result
     - echo $poc_result
-    - [[ $config_result =~ "Config success!" ]]
-    - [[ $poc_result =~ "PoC success!" ]]
+    - [[ $config_result =~ "Config success!" ]] || exit -1
+    - [[ $poc_result =~ "PoC success!" ]] || exit -1
 
