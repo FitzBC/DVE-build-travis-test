@@ -3,6 +3,8 @@ services:
 
 env:
     - DOCKER_COMPOSE_VERSION=1.25.4
+    - SLEEP_TIME=10
+
 
 before_install:
     - sudo rm /usr/local/bin/docker-compose
@@ -10,12 +12,18 @@ before_install:
     - chmod +x docker-compose
     - sudo mv docker-compose /usr/local/bin
     - sudo apt-get update
-    - sudo apt-get install -y python3 python3-pip
+    - sudo apt-get install -y python3 python3-pip curl
     - sudo pip3 install requests
 
-script:
-    - docker-compose pull
+install:
     - docker-compose up -d
-    - sleep 10
-    - sudo docker-compose logs config
-    - sudo docker-compose logs poc
+    - sleep ${SLEEP_TIME}
+
+script:
+    - config_result=`sudo docker-compose logs config`
+    - poc_result=`sudo docker-compose logs poc`
+    - echo $config_result
+    - echo $poc_result
+    - [[ $config_result =~ "Config success!" ]]
+    - [[ $poc_result =~ "PoC success!" ]]
+

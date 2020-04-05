@@ -6,10 +6,10 @@ def do_poc():
     return r
 def check_poc(r):
     if('Hello World!' in r.text):
-        print('Poc success!')
+        print('PoC success!')
         return 0
     else:
-        print('Poc failed!')
+        print('PoC failed!')
         return -1
 
 if __name__ == "__main__":
