@@ -18,6 +18,6 @@ install:
     - sleep ${SLEEP_TIME}
 
 script:
-    - ./check_config.sh
-    - ./check_poc.sh
+    - sudo bash check_config.sh
+    - sudo bash check_poc.sh
 
