@@ -23,5 +23,5 @@ script:
     - sudo bash check_poc.sh
     - cat docker-compose.yml
     - curl http://127.0.0.1:${PORT}
-    - curl http://127.0.0.1:8080
-    - curl http://127.0.0.1:88
+    - curl http://127.0.0.1:8080 >123.txt
+    - cat 123.txt
