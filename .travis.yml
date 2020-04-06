@@ -2,7 +2,7 @@ services:
     - docker
 
 env:
-    - DOCKER_COMPOSE_VERSION="1.25.4"  SLEEP_TIME=10 PORT=8080
+    - DOCKER_COMPOSE_VERSION="1.25.4" SLEEP_TIME=10 PORT=8080
 
 before_install:
     - sudo rm /usr/local/bin/docker-compose
@@ -22,6 +22,4 @@ script:
     - sudo bash check_config.sh
     - sudo bash check_poc.sh
     - cat docker-compose.yml
-    - curl http://127.0.0.1:${PORT}
-    - curl http://127.0.0.1:8080 >123.txt
-    - cat 123.txt
+    - curl -vv -L http://127.0.0.1:${PORT}
