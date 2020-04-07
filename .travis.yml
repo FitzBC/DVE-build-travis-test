@@ -2,7 +2,7 @@ services:
     - docker
 
 env:
-    - DOCKER_COMPOSE_VERSION="1.25.4" SLEEP_TIME=10 PORT=8080 DOMAIN_NAME="my.mail.163.com"
+    - DOCKER_COMPOSE_VERSION="1.25.4" SLEEP_TIME=10 PORT=8080 DOMAIN_NAME="my.mail.666.com"
 
 before_install:
     - sudo rm /usr/local/bin/docker-compose
@@ -26,5 +26,5 @@ script:
     - sudo bash check_config.sh
     - sudo bash check_poc.sh
     - cat docker-compose.yml
-    - ls
+    - ls -al
     - curl -vv -L http://${DOMAIN_NAME}:${PORT}
