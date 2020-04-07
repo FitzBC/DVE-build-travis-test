@@ -28,3 +28,4 @@ script:
     - cat docker-compose.yml
     - sudo cat /etc/hosts
     - curl -vv -L http://${DOMAIN_NAME}:${PORT}
+    - sudo bash del_install_file.sh
