@@ -6,5 +6,5 @@ INSTALL_FILE="1.txt"
 
 if [ ${IF_DELETE_INSTALL_FILE} == 1 ];
 then
-    sudo docker exec -it web /bin/sh -c 'rm '${INSTALL_FILE}
+    sudo docker exec -it web-app /bin/sh -c 'rm '${INSTALL_FILE}
 fi
