@@ -13,6 +13,10 @@ before_install:
     - sudo apt-get install -y python3 python3-pip curl
     - sudo pip3 install requests
 
+addons:
+    hosts:
+        - my.mail.163.com
+
 install:
     - sed -i 's/[0-9]*[1-9][0-9]*:80/'${PORT}':80/g' docker-compose.yml
     - docker-compose up -d
@@ -22,4 +26,4 @@ script:
     - sudo bash check_config.sh
     - sudo bash check_poc.sh
     - cat docker-compose.yml
-    - curl -vv -L http://127.0.0.1:${PORT}
+    - curl -vv -L http://my.mail.163.com:${PORT}
