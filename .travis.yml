@@ -26,5 +26,5 @@ script:
     - sudo bash check_config.sh
     - sudo bash check_poc.sh
     - cat docker-compose.yml
-    - ls -al
+    - sudo cat /etc/hosts
     - curl -vv -L http://${DOMAIN_NAME}:${PORT}
