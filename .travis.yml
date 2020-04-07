@@ -2,7 +2,7 @@ services:
     - docker
 
 env:
-    - DOCKER_COMPOSE_VERSION="1.25.4" SLEEP_TIME=10 PORT=8080
+    - DOCKER_COMPOSE_VERSION="1.25.4" SLEEP_TIME=10 PORT=8080 DOMAIN_NAME="my.mail.163.com"
 
 before_install:
     - sudo rm /usr/local/bin/docker-compose
@@ -15,7 +15,7 @@ before_install:
 
 addons:
     hosts:
-        - my.mail.163.com
+        - ${DOMAIN_NAME}
 
 install:
     - sed -i 's/[0-9]*[1-9][0-9]*:80/'${PORT}':80/g' docker-compose.yml
@@ -26,4 +26,4 @@ script:
     - sudo bash check_config.sh
     - sudo bash check_poc.sh
     - cat docker-compose.yml
-    - curl -vv -L http://my.mail.163.com:${PORT}
+    - curl -vv -L http://${DOMAIN_NAME}:${PORT}
