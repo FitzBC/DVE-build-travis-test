@@ -2,7 +2,7 @@ services:
     - docker
 
 env:
-    - DOCKER_COMPOSE_VERSION="1.25.4" SLEEP_TIME=10 PORT=8080 DOMAIN_NAME="my.mail.1633.com"
+    - DOCKER_COMPOSE_VERSION="1.25.4" SLEEP_TIME=10 PORT=8080 DOMAIN_NAME="my.mail.666.com"
 
 before_install:
     - sudo rm /usr/local/bin/docker-compose
