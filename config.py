@@ -5,16 +5,16 @@ def do_config():
     r = requests.post('http://web',data=post_data)
     print(r.text)
 
-def check_config(r):
+def check_config():
     r = requests.get('http://web')
     print(r.text)
     return r
 
 if __name__ == "__main__":
     
-    result1=check_config(r)
+    result1=check_config()
     do_config()
-    result2=check_config(r)
+    result2=check_config()
     
     target_info='Hello World!'
 
