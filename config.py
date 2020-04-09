@@ -2,7 +2,7 @@ import requests
 
 def do_config():
     post_data={'file_content':'Hello World!'}
-    r = requests.post('http://web',data=post_data)
+    r = requests.post('http://web/config',data=post_data)
     print(r.text)
 
 def check_config():
